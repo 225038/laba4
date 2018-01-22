@@ -1,20 +1,48 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<p-chart id="graph" type="line" style="width: 100px; height: 100px" [data]="data"></p-chart>
+<div>
+  <div class="content-section implementation">
 
+  </div>
+  <table style="margin-left: 10%; margin-top: 10%">
+    <tr >Выберите X:</tr>
+    <tr>
+      <td>
+      <mat-slider style="width: 100%; margin-top: 2%; margin-bottom: 15%" min="-3" max="5" step="0.5" value="0" [(ngModel)]="val1"></mat-slider>
+      </td>
+      <td>
+        <i> X = {{val1}}</i>
+      </td>
+    </tr>
+    <tr>Введите значение Y:</tr>
+    <tr>
+      <td>
+        <input pInputText id="inputY" style="margin-top: 2%; margin-bottom: 15%" type="number" value="0" [min]="-3" [max]="3"/>
+      </td>
+      <td>
+        <i id="inputError" style="visibility: hidden"> Неверно введено значение. Y задается от -3 до 3</i>
+      </td>
+    </tr>
+    <tr>Выберите R:</tr>
+    <tr>
+      <td>
+        <mat-slider style="width: 100%; margin-top: 2%; margin-bottom: 15%" min="-3" max="5" step="0.5" value="2" [(ngModel)]="val3"></mat-slider>
+      </td>
+      <td>
+        <i> R = {{val3}}</i>
+      </td>
+    </tr>
+    <tr>
+      <button pButton label="Проверить"></button>
+      <button pButton id="clearButton" style="visibility: hidden" label="Очистить таблицу"></button>
+    </tr>
+  </table>
+</div>
+<table id="resultTable" style="border-collapse: collapse; visibility: hidden;
+    width: 400px; text-align: center; margin-top: 5%; margin-left: 5%">
+  <tr>
+    <td style=" padding: 10px; border: 1px solid black">X:</td>
+    <td style=" padding: 10px; border: 1px solid black">Y:</td>
+    <td style=" padding: 10px; border: 1px solid black">R:</td>
+    <td style=" padding: 10px; border: 1px solid black">Попадание:</td>
+  </tr>
+</table>
